@@ -1,4 +1,4 @@
-all: 	earthly
+all: 	set earthly
 	earthly/earthly -v
 	cp Earthfile earthly
 	cd earthly && ./earthly +for-linux
@@ -8,6 +8,10 @@ all: 	earthly
 	bin/earthly --no-cache github.com/earthly/hello-world+hello
 
 
+
 earthly:
 	git clone https://github.com/earthly/earthly.git
 
+set:
+	echo "local shell variables"
+	set | cut -f1 -d= |cat -n
