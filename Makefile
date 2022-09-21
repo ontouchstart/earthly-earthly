@@ -1,6 +1,6 @@
 all: 	set env earthly
-	earthly/earthly -v
-	cp Earthfile earthly
+	./earthly/earthly -v
+	cp src/Earthfile earthly
 	cd earthly && ./earthly +for-linux
 	./earthly/build/linux/amd64/earthly -v 
 	./earthly/build/linux/amd64/earthly github.com/earthly/hello-world+hello
