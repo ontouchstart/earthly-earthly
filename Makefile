@@ -1,4 +1,4 @@
-all: 	set earthly
+all: 	set env earthly
 	earthly/earthly -v
 	cp Earthfile earthly
 	cd earthly && ./earthly +for-linux
@@ -15,3 +15,9 @@ earthly:
 set:
 	echo "local shell variables"
 	set | cut -f1 -d= |cat -n
+env:
+	echo "env variables"
+	env | cut -f1 -d= |cat -n
+
+clean:
+	rm -rf earthly
